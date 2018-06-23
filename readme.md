@@ -10,6 +10,10 @@
 - 1.  `org.springframework.web.servlet.resource.ResourceHttpRequestHandler cannot be cast to org.springframework.web.method.HandlerMethod `
 解决办法：https://www.cnblogs.com/hubing/p/6179670.html
 
+- 2. 静态资源处理
+spring boot 框架，默认静态资源目录是 resources/static/;
+项目编译后，static/ 目录下的文件会直接放到根目录下，所以在访问静态资源时， / 对应的即为 static/ 目录
+
 ### 参考资料
 - http://tengj.top/2017/04/24/springboot0/
   - [优雅的入门篇](http://tengj.top/2017/02/26/springboot1/)

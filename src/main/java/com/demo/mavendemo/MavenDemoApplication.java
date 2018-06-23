@@ -10,6 +10,10 @@ import com.demo.domain.ConfigBean;
 // @Configuration
 // @EnableAutoConfiguration
 // @ComponentScan
+
+//@EnableAutoConfiguration
+//借助@Import的支持，收集和注册特定场景相关的bean定义
+
 @SpringBootApplication
 @EnableConfigurationProperties({ ConfigBean.class })
 public class MavenDemoApplication {

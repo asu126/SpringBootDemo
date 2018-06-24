@@ -1,7 +1,8 @@
 # spring boot 学习demo
 
 ### 访问路径
-  - 优雅的入门篇 -- http://localhost:8080/hello
+  - http://localhost:8080/login (用戶名、密碼：admin，admin)
+  - 优雅的入门篇 -- http://localhost:8080/helloword
   - 配置文件解析 -- http://localhost:8080/config
   - 开发Web应用之Thymeleaf篇 -- http://localhost:8080/learn,http://localhost:8080/learn/t
 
@@ -29,7 +30,8 @@ spring boot 框架，默认静态资源目录是 resources/static/;
 
 ### 参考资料
 - [Consuming a RESTful Web Service with jQuery]htt(ps://spring.io/guides/gs/consuming-rest-jquery/)
-- [静态资源和拦截器处理-demo](https://github.com/spring-projects/spring-boot)
+- [静态资源和拦截器处理-demo](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-samples)
+- [securing-web](https://spring.io/guides/gs/securing-web/)
 
 - http://tengj.top/2017/04/24/springboot0/
   - [优雅的入门篇](http://tengj.top/2017/02/26/springboot1/)

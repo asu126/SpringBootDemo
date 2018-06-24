@@ -66,16 +66,29 @@ public class MavenDemoApplication extends SpringBootServletInitializer {
 
 		@Override
 		protected void configure(HttpSecurity http) throws Exception {
-			http.authorizeRequests().antMatchers("/", "/home").permitAll().anyRequest().authenticated().and()
-					.formLogin().loginPage("/login").permitAll().and().logout().permitAll().and().httpBasic();
+			// @formatter:off
+			http.authorizeRequests().antMatchers("/", "/home").permitAll() // 无条件允许访问
+				.anyRequest().authenticated() // 允许认证过的用户
+				.and()
+				.formLogin().loginPage("/login").permitAll() // 认证用户
+				.and()
+				.httpBasic()
+				.and()
+				.rememberMe().tokenValiditySeconds(60*60*24)
+				.and()
+				.logout().permitAll();
+			// @formatter:on
 		}
 
 		@Override
 		protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 			// inMemoryAuthentication 从内存中获取
-			auth.inMemoryAuthentication().passwordEncoder(new BCryptPasswordEncoder()).withUser("user")
-					.password(new BCryptPasswordEncoder().encode("user")).roles("USER").and().withUser("admin")
-					.password(new BCryptPasswordEncoder().encode("admin")).roles("USER", "ADMIN");
+			// @formatter:off
+			auth.inMemoryAuthentication().passwordEncoder(new BCryptPasswordEncoder())
+				.withUser("user").password(new BCryptPasswordEncoder().encode("user")).roles("USER")
+				.and()
+				.withUser("admin").password(new BCryptPasswordEncoder().encode("admin")).roles("USER", "ADMIN");
+			// @formatter:on
 		}
 
 	}

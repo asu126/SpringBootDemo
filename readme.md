@@ -5,16 +5,32 @@
   - 配置文件解析 -- http://localhost:8080/config
   - 开发Web应用之Thymeleaf篇 -- http://localhost:8080/learn,http://localhost:8080/learn/t
 
+### spring bean 作用域(Scope)
+  - 单例(Singleton): 默认
+  - 原型(Prototype): 每次注入或者从应用上下文检索的时候，都会创建新的实例
+  - 会话(Session)
+  - 请求(Request)
+```
+@Bean
+@Component
+@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+public class NotePad { ... }
+```
+
 
 ### bug 记录
 - 1.  `org.springframework.web.servlet.resource.ResourceHttpRequestHandler cannot be cast to org.springframework.web.method.HandlerMethod `
 解决办法：https://www.cnblogs.com/hubing/p/6179670.html
 
 - 2. 静态资源处理
+静态资源的映射路径，优先级顺序为：META-INF/resources > resources > static > public
 spring boot 框架，默认静态资源目录是 resources/static/;
 项目编译后，static/ 目录下的文件会直接放到根目录下，所以在访问静态资源时， / 对应的即为 static/ 目录
 
 ### 参考资料
+- [Consuming a RESTful Web Service with jQuery]htt(ps://spring.io/guides/gs/consuming-rest-jquery/)
+- [静态资源和拦截器处理-demo](https://github.com/spring-projects/spring-boot)
+
 - http://tengj.top/2017/04/24/springboot0/
   - [优雅的入门篇](http://tengj.top/2017/02/26/springboot1/)
   - [配置文件解析](http://tengj.top/2017/02/28/springboot2/)

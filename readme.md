@@ -4,7 +4,7 @@
   - http://localhost:8080/login (用戶名、密碼：admin，admin)
   - 优雅的入门篇 -- http://localhost:8080/helloword
   - 配置文件解析 -- http://localhost:8080/config
-  - 开发Web应用之Thymeleaf篇 -- http://localhost:8080/learn,http://localhost:8080/learn/t
+  - 开发Web应用之Thymeleaf篇 -- http://localhost:8080/course,http://localhost:8080/course/t
 
 ### spring bean 作用域(Scope)
   - 单例(Singleton): 默认

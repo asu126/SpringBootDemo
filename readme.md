@@ -18,6 +18,13 @@
 public class NotePad { ... }
 ```
 
+### 数据库访问技术总结
+  - JDBC
+  - ORM(object-relational mapping): 对象关系映射，eg:Hibernate
+  - JPA: java 持久化api
+
+doamin: 定义model(实体对象)，dao/Repository定义数据库访问借口，dao.impl/ Jdbc*Repository定义`借口`具体实现。
+易于测试(不与数据访问绑定在一起，使用mock实现)；与持久化技术无关。
 
 ### bug 记录
 - 1.  `org.springframework.web.servlet.resource.ResourceHttpRequestHandler cannot be cast to org.springframework.web.method.HandlerMethod `

@@ -39,6 +39,8 @@ spring boot 框架，默认静态资源目录是 resources/static/;
 - [Consuming a RESTful Web Service with jQuery]htt(ps://spring.io/guides/gs/consuming-rest-jquery/)
 - [静态资源和拦截器处理-demo](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-samples)
 - [securing-web](https://spring.io/guides/gs/securing-web/)
+- [redis 整合1](https://blog.csdn.net/qq_34579060/article/details/79442692)
+- [redis 整合2](https://www.cnblogs.com/huzi007/p/7085152.html)
 
 - http://tengj.top/2017/04/24/springboot0/
   - [优雅的入门篇](http://tengj.top/2017/02/26/springboot1/)

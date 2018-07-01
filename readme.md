@@ -18,6 +18,14 @@
 public class NotePad { ... }
 ```
 
+### REST API
+- REST 方法： GET,PUT,DELETE,POST
+- @RequestParam 获得参数
+- @RequestBody 替换基于视图的渲染方式
+- @RequestBody 将来自客户端的资源表述转换为对象
+- ResponseEntity
+- 异常处理：404等
+
 ### 数据库访问技术总结
   - JDBC
   - ORM(object-relational mapping): 对象关系映射，eg:Hibernate
@@ -41,6 +49,7 @@ spring boot 框架，默认静态资源目录是 resources/static/;
 - [securing-web](https://spring.io/guides/gs/securing-web/)
 - [redis 整合1](https://blog.csdn.net/qq_34579060/article/details/79442692)
 - [redis 整合2](https://www.cnblogs.com/huzi007/p/7085152.html)
+
 
 - http://tengj.top/2017/04/24/springboot0/
   - [优雅的入门篇](http://tengj.top/2017/02/26/springboot1/)

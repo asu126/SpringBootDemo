@@ -5,6 +5,10 @@
   - 优雅的入门篇 -- http://localhost:8080/helloword
   - 配置文件解析 -- http://localhost:8080/config
   - 开发Web应用之Thymeleaf篇 -- http://localhost:8080/course,http://localhost:8080/course/t
+  - rabbitMQ
+    -- http://localhost:8080/rabbit/hello
+    -- http://localhost:8080/rabbit/oneToMany
+    -- http://localhost:8080/rabbit/manyToMany
 
 ### spring bean 作用域(Scope)
   - 单例(Singleton): 默认
@@ -26,6 +30,26 @@ public class NotePad { ... }
 - ResponseEntity
 - 异常处理：404等
 
+### 远程服务
+- RMI, Hessian, Buarlap, HttpInvoker
+
+### Spring 消息
+- 消息模型（生产者，消费者，通道）
+  - 点对点模型（队列）
+  - 发布/订阅模型（主题）(主题消息可以发送给多个主题订阅)
+  - JMS 发送消息
+    - ActiveMQ
+    - JMS 模板
+    - 消息驱动的POJO
+  - AMQP : 高级消息队列协议(跨平台，跨语言)
+    - 参考1：https://www.cnblogs.com/boshen-hzb/p/6841982.html
+    - 参考2：https://www.cnblogs.com/ityouknow/p/6120544.html
+    - 在生产者，消费者，通道基础上加了Exchange
+      - Direct
+      - Topic
+      - Headers
+      - Fanout
+
 ### 数据库访问技术总结
   - JDBC
   - ORM(object-relational mapping): 对象关系映射，eg:Hibernate
@@ -33,6 +57,10 @@ public class NotePad { ... }
 
 doamin: 定义model(实体对象)，dao/Repository定义数据库访问借口，dao.impl/ Jdbc*Repository定义`借口`具体实现。
 易于测试(不与数据访问绑定在一起，使用mock实现)；与持久化技术无关。
+
+### spring-boot-starter-actuator
+为 spring boot 添加了一些管理端点
+
 
 ### bug 记录
 - 1.  `org.springframework.web.servlet.resource.ResourceHttpRequestHandler cannot be cast to org.springframework.web.method.HandlerMethod `
@@ -42,6 +70,9 @@ doamin: 定义model(实体对象)，dao/Repository定义数据库访问借口，
 静态资源的映射路径，优先级顺序为：META-INF/resources > resources > static > public
 spring boot 框架，默认静态资源目录是 resources/static/;
 项目编译后，static/ 目录下的文件会直接放到根目录下，所以在访问静态资源时， / 对应的即为 static/ 目录
+
+- 3. caused by: org.springframework.amqp.AmqpIllegalStateException: Fatal exception on listener startup
+  消息队列不存在，控制台添加消息队列
 
 ### 参考资料
 - [Consuming a RESTful Web Service with jQuery]htt(ps://spring.io/guides/gs/consuming-rest-jquery/)

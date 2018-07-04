@@ -1,4 +1,4 @@
-package com.demo.mavendemo.impl;
+package com.demo.mavendemo.service.impl;
 
 import com.demo.mavendemo.dao.LearnDao;
 import com.demo.domain.LearnResouce;

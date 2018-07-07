@@ -1,4 +1,4 @@
-package com.demo.domain;
+package com.demo.mavendemo.domain;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

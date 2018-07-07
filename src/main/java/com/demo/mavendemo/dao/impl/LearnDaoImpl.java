@@ -1,7 +1,7 @@
 package com.demo.mavendemo.dao.impl;
 
 import com.demo.mavendemo.dao.LearnDao;
-import com.demo.domain.LearnResouce;
+import com.demo.mavendemo.domain.LearnResouce;
 import com.demo.mavendemo.tools.Page;
 import com.demo.mavendemo.tools.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;

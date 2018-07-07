@@ -1,6 +1,6 @@
 package com.demo.mavendemo.dao;
 
-import com.demo.domain.LearnResouce;
+import com.demo.mavendemo.domain.LearnResouce;
 import com.demo.mavendemo.tools.Page;
 
 import java.util.Map;

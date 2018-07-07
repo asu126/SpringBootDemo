@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.demo.domain.ConfigBean;
+import com.demo.mavendemo.domain.ConfigBean;
 
 @RestController
 public class ConfigController {

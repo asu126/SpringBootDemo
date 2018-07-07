@@ -1,7 +1,7 @@
 package com.demo.mavendemo.service;
 
 
-import com.demo.domain.LearnResouce;
+import com.demo.mavendemo.domain.LearnResouce;
 import com.demo.mavendemo.tools.Page;
 
 import java.util.Map;

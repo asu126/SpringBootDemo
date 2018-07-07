@@ -1,18 +1,9 @@
-package com.demo.domain;
+package com.demo.mavendemo.domain;
 
-public class LearnResouce {
-	private Long id;
+public class Course {
 	private String author;
 	private String title;
 	private String url;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public String getAuthor() {
 		return author;
@@ -38,4 +29,9 @@ public class LearnResouce {
 		this.url = url;
 	}
 
+	public Course(String author, String title, String url) {
+		this.author = author;
+		this.title = title;
+		this.url = url;
+	}
 }

@@ -25,7 +25,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.Environment;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.demo.domain.ConfigBean;
+import com.demo.mavendemo.domain.ConfigBean;
 //import org.springframework.boot.actuate.autoconfigure.security.servlet.EndpointRequest;
 
 // 实际上在这里调用了这三个注解

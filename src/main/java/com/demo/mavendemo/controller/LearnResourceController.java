@@ -1,7 +1,7 @@
 package com.demo.mavendemo.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.demo.domain.LearnResouce;
+import com.demo.mavendemo.domain.LearnResouce;
 import com.demo.mavendemo.service.LearnService;
 import com.demo.mavendemo.tools.Page;
 import com.demo.mavendemo.tools.ServletUtil;

@@ -22,3 +22,51 @@ insert  into `learn_resource`(`id`,`author`,`title`,`url`) values (1005,'CSDN—
 insert  into `learn_resource`(`id`,`author`,`title`,`url`) values (1006,'梁桂钊的博客','Spring Boot 揭秘与实战','http://blog.csdn.net/column/details/spring-boot.html');
 insert  into `learn_resource`(`id`,`author`,`title`,`url`) values (1007,'林祥纤博客系列','从零开始学Spring Boot','http://412887952-qq-com.iteye.com/category/356333');
 insert  into `learn_resource`(`id`,`author`,`title`,`url`) values (1028,'杜琪','关于Spring Boot的博客集合','http://www.jianshu.com/p/7e2e5e7b32ab');
+
+
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
+  `address_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `address` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `province` varchar(50) DEFAULT NULL,
+  `city` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `car` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `color` varchar(50) DEFAULT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO
+    `user`
+VALUES
+    ('1', 'baby', '1'),
+    ('2', 'kingboy', '2'),
+    ('3', 'boy', '3'),
+    ('4', 'kingbaby', '4');
+
+INSERT INTO
+    `address`
+VALUES
+    ('1', '北京', '北京'),
+    ('2', '天津', '天津'),
+    ('3', '安徽', '宿州'),
+    ('4', '广东', '广州');
+
+INSERT INTO
+    `car`
+VALUES
+    ('1', 'green', '路虎', '1'),
+    ('2', 'white', '奔驰', '2'),
+    ('3', 'blue', '玛莎拉蒂', '4'),
+    ('4', 'yellow', '兰博基尼', '4');
+

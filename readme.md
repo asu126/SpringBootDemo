@@ -9,6 +9,9 @@
     -- http://localhost:8080/rabbit/hello
     -- http://localhost:8080/rabbit/oneToMany
     -- http://localhost:8080/rabbit/manyToMany
+  - 数据库一对一，一对多：
+    -- http://localhost:8080/user/1/address
+    -- http://localhost:8080/user/1/car
 
 ### spring bean 作用域(Scope)
   - 单例(Singleton): 默认
@@ -60,7 +63,7 @@ doamin: 定义model(实体对象)，dao/Repository定义数据库访问借口，
 
 ### spring-boot-starter-actuator
 为 spring boot 添加了一些管理端点
-
+ - GET /autoconfig
 
 ### bug 记录
 - 1.  `org.springframework.web.servlet.resource.ResourceHttpRequestHandler cannot be cast to org.springframework.web.method.HandlerMethod `
@@ -80,6 +83,8 @@ spring boot 框架，默认静态资源目录是 resources/static/;
 - [securing-web](https://spring.io/guides/gs/securing-web/)
 - [redis 整合1](https://blog.csdn.net/qq_34579060/article/details/79442692)
 - [redis 整合2](https://www.cnblogs.com/huzi007/p/7085152.html)
+- [SpringBoot使用Mybatis注解进行一对多和多对多查询](https://blog.csdn.net/KingBoyWorld/article/details/78966789)
+- [Mybatis 映射](https://blog.csdn.net/owen_william/article/details/51815473)
 
 
 - http://tengj.top/2017/04/24/springboot0/

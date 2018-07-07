@@ -18,7 +18,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 //import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.context.annotation.Bean;
@@ -39,6 +39,9 @@ import com.demo.mavendemo.domain.ConfigBean;
 @SpringBootApplication
 @EnableConfigurationProperties({ ConfigBean.class })
 @EnableGlobalMethodSecurity(securedEnabled = true)
+
+// 重要: 实现mapper的自动注入
+@MapperScan(basePackages = "com.demo.mavendemo.mapper")
 public class MavenDemoApplication extends SpringBootServletInitializer {
 
 	/**

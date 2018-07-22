@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+	<script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+</head>
+<body>
+	<div id="vue_det">
+		<h1>site : {{site}}</h1>
+		<h1>url : {{url}}</h1>
+		<h1>{{details()}}</h1>
+		
+		<div v-html="message"></div>
+		
+		 <p>{{ message }}</p>
+    	<input v-model="message">
+    	<button v-on:click="reverseMessage">反转字符串</button>
+	</div>
+	<script type="text/javascript">
+	    var data = { site: "菜鸟教程", url: "www.runoob.com",
+	    		     alexa: 10000, message: '<h1>使用 v-html 指令用于输出 html 代码</h1>'}
+		var vm = new Vue({
+			el: '#vue_det',
+			//  用于定义属性
+			data: data,
+			//  用于定义的函数
+			methods: {
+				details: function() {
+					return  this.site + " - 学的不仅是技术，更是梦想！";
+				},
+		        reverseMessage: function () {
+		          this.message = this.message.split('').reverse().join('')
+		        }
+			}
+		})
+
+	    // 自定义属性
+	    data.alexa = 1234
+	    document.write(vm.alexa) // 1234
+	    document.write("<br>")
+	    
+	    // 实例属性
+		document.write(vm.$data === data) // true
+		document.write("<br>")
+		document.write(vm.$el === document.getElementById('vue_det')) // true
+	</script>
+</body>
+</html>

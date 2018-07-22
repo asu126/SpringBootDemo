@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			.reveal * {display: none;}
+			.reveal *.handle {display: block;}
+		</style>
+		
+		<script>
+			window.onload = function() {
+				console.log("hello world");
+				var elements = document.getElementsByClassName("reveal");
+				for (var i = 0; i<elements.length;i++){
+					var elt = elements[i];
+					var title = elt.getElementsByClassName("handle")[0];
+					console.log(title)
+					// addRevealHandler(title, elt);
+				}
+
+				function addRevealHandler(title, elt)
+				{
+					title.onclick = function() {
+						if(elt.ClassName == "reveal")
+							elt.ClassName = "revealed";
+						else if(elt.ClassName == "revealed")
+							elt.ClassName = "reveal";
+					}
+				}
+				
+				document.getElementById("parent").addEventListener("click",function(e){
+                	alert("parent事件被触发，"+this.id);
+ 				})
+				document.getElementById("child").addEventListener("click",function(e){
+					alert("child事件被触发，"+this.id)
+				})
+			};
+		</script>
+	</head>
+	
+	<body>
+		<div class="reveal">
+			<h1 chass="handle"> Click here to reveal hidden text </h1>
+			<p>11111111111111111111111111111111111</p>
+		</div>
+
+		<div id="parent">
+			<div id="child" class="child">
+			<h1 chass="handle"> Click here to reveal hidden tex111111111111111t </h1>
+			</div>
+		</div>
+	</body>
+</html>

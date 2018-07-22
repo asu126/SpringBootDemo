@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Vue xuexi</title>
+<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+<meta http-equiv="Access-Control-Allow-Origin" content="*">
+</head>
+<body>
+
+	<div id="blog-posts-events-demo">
+		<div :style="{ fontSize: postFontSize + 'em' }">
+			<blog-post v-for="post in posts" v-bind:key="post.id"
+				v-bind:post="post" v-bind:title="post.title"
+				v-bind:likes="post.likes" v-on:enlarge-text="onEnlargeText">
+			</blog-post>
+		</div>
+	</div>
+
+	<script>
+	Vue.component('blog-post', {
+      // props: ['post','title', 'likes'],
+      props:{
+    	  // 基础的类型检查 (`null` 匹配任何类型)
+    	   likes: Number,
+    	   title: {
+    		      type: String,
+    		      required: true
+    		    },
+    		post: {
+    		    type: Object,
+    		    // 对象或数组且一定会从一个工厂函数返回默认值
+    		    default: function () {
+    		      return { id: 1, title: 'hello' }
+    		    }
+    		 }
+      },
+      template: `
+        <div class="blog-post">
+        <h3>{{ post.title }}, string: {{title}}, number: {{likes}}</h3>
+        <button v-on:click="$emit('enlarge-text', 0.1)">
+        Enlarge text
+        </button>
+        <div v-html="post.content"></div>
+      </div>
+     `
+})
+
+	new Vue({
+      el: '#blog-posts-events-demo',
+      data: {
+    	  posts: [
+  	        { id: 1, title: 'My journey with Vue', likes: 88 },
+  	        { id: 2, title: 'Blogging with Vue',  likes: 66 },
+  	        { id: 3, title: 'Why Vue is so fun',  likes: 99 }
+  	      ],
+        postFontSize: 1
+      },
+      methods: {
+    	  onEnlargeText: function (enlargeAmount) {
+    		 console.log(enlargeAmount)
+    	    this.postFontSize += enlargeAmount
+    	  }
+    	}
+	})
+</script>
+</body>
+</html>

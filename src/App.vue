@@ -1,13 +1,38 @@
 <template>
   <div id="app">
-    <h1>Nested Named Views</h1>
+    <Navbar1/>
+    <h5>{{user.name}}</h5>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+import Navbar1 from './components/navbar/navbar-1'
+
 export default {
-  name: 'App'
+  name: 'App',
+  data () {
+    return {
+      user: {}
+    }
+  },
+  created: function () {
+    console.log('created')
+    // Alias the component instance as `vm`, so that we
+    // can access it inside the promise function
+    var vm = this
+
+    // Fetch our array of posts from an API
+    fetch('http://localhost:8080/api/user/1')
+      .then(function (response) {
+        return response.json()
+      })
+      .then(function (data) {
+        console.log(data)
+        vm.user = data
+      })
+  },
+  components: { Navbar1 }
 }
 </script>
 

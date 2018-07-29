@@ -6,6 +6,7 @@ import VueRouter from 'vue-router'
 
 import App from './App'
 import UserEmailsSubscriptions from './components/main/UserEmailsSubscriptions'
+import News from './components/main/News'
 
 Vue.use(VueRouter)
 Vue.use(BootstrapVue)
@@ -54,6 +55,7 @@ const UserProfilePreview = {
 const router = new VueRouter({
   mode: 'history',
   routes: [
+    { path: '', component: News },
     { path: '/settings',
       // You could also have named views at tho top
       component: UserSettings,

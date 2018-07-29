@@ -1,8 +1,13 @@
 <template>
   <div id="app">
-    <Navbar1/>
-    <h5>{{user.name}}</h5>
-    <router-view></router-view>
+    <div v-if="Math.random() > 0.0">
+      <Navbar1/>
+      <router-view></router-view>
+    </div>
+    <div v-else>
+      <h5>{{user.name}}</h5>
+      Now you don't
+    </div>
   </div>
 </template>
 

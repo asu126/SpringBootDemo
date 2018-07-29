@@ -42,7 +42,9 @@ public class MvcConfig implements WebMvcConfigurer {
 
 	@Override
     public void addCorsMappings(final CorsRegistry registry) {
-        registry.addMapping("/api/**");
+        registry.addMapping("/api/**")
+                .exposedHeaders("access-control-allow-headers", "access-control-allow-methods",
+				"access-control-allow-origin", "Date", "X-Total-Page");
     }
 
     @Bean

@@ -31,7 +31,7 @@ public interface UserRepository {
 
 	// 使用对象
 	// 除了Map对象，我们也可直接使用普通的Java对象来作为查询条件的传参，比如我们可以直接使用User对象
-	@Insert("INSERT INTO user(name, address_id) VALUES(#{name}, #{addressId})")
+	@Insert("INSERT INTO user(name, address_id, age) VALUES(#{name}, #{addressId}, #{age})")
 	// 如果在插入数据库的时候想要返回主键最大值可用@Options注解，在插入成功后，即可获取主键字段的值
 	@Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
 	int insertByUser(User user);

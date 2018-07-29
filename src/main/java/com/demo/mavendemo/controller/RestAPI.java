@@ -49,7 +49,7 @@ public class RestAPI {
 		long total = pageInfo.getTotal();
 		List<User> result = pageInfo.getResult();// 和上面的users结果相同
 
-		response.setIntHeader("X-total-page", (int) total);
+		response.setIntHeader("X-Total-Page", (int)total);
 
 		return pageInfo;
 	}
@@ -67,11 +67,22 @@ public class RestAPI {
 		// map.put("addressId", 1);
 		// System.out.println(userRepository.insertUser(map));
 		System.out.println("-----------------");
-		User u = new User("insertByUser", 1);
-		System.out.println(userRepository.insertByUser(u));
-		System.out.println(u.getId());
+		// User u = new User("insertByUser", 1);
+		// System.out.println(userRepository.insertByUser(u));
+		// System.out.println(u.getId());
 
 		return user;
+	}
+
+	@RequestMapping(value = "/user", method = RequestMethod.POST)
+	public User createUser(@RequestParam(value = "name", required = true) String name,
+			               @RequestParam(value = "age", required = true) Integer age ) {
+		System.out.println("-----------------");
+		 User u = new User(name, age);
+		 System.out.println(userRepository.insertByUser(u));
+		 System.out.println(u.getId());
+
+		return u;
 	}
 
 	class Greeting {

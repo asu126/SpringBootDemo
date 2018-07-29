@@ -15,6 +15,8 @@
   - insert
     -- https://blog.csdn.net/baochanghong/article/details/54286222
     -- 主键 https://blog.csdn.net/qq_20867981/article/details/80641353
+  - 分页
+    -- https://blog.csdn.net/KingBoyWorld/article/details/78948304
 
 ### spring bean 作用域(Scope)
   - 单例(Singleton): 默认
@@ -38,9 +40,16 @@ public class NotePad { ... }
 
 ### 跨域参考
 - [github](https://github.com/fedej/qremergencias/blob/a66eb6ad75e5f40888604db97e5b628ea72fcade/qremergencias-ws/src/main/java/ar/com/utn/proyecto/qremergencias/ws/config/WebConfig.java)
+- [springboot+vue解决跨域读取不出header的内容](https://blog.csdn.net/u012534163/article/details/79584694)
 
 ### 远程服务
 - RMI, Hessian, Buarlap, HttpInvoker
+
+### GET、POST方式提时， 根据request header Content-Type的值来判断:
+- application/x-www-form-urlencoded， 可选（即非必须，因为这种情况的数据@RequestParam, @ModelAttribute也可以处理，当然@RequestBody也能处理）；
+- multipart/form-data, 不能处理（即使用@RequestBody不能处理这种格式的数据）；
+- 其他格式， 必须（其他格式包括application/json, application/xml等。这些格式的数据，必须使用@RequestBody来处理）；
+- [参考链接](https://blog.csdn.net/architect_csdn/article/details/79414958)
 
 ### Spring 消息
 - 消息模型（生产者，消费者，通道）

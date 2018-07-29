@@ -12,6 +12,9 @@
   - 数据库一对一，一对多：
     -- http://localhost:8080/user/1/address
     -- http://localhost:8080/user/1/car
+  - insert
+    -- https://blog.csdn.net/baochanghong/article/details/54286222
+    -- 主键 https://blog.csdn.net/qq_20867981/article/details/80641353
 
 ### spring bean 作用域(Scope)
   - 单例(Singleton): 默认
@@ -32,6 +35,9 @@ public class NotePad { ... }
 - @RequestBody 将来自客户端的资源表述转换为对象
 - ResponseEntity
 - 异常处理：404等
+
+### 跨域参考
+- [github](https://github.com/fedej/qremergencias/blob/a66eb6ad75e5f40888604db97e5b628ea72fcade/qremergencias-ws/src/main/java/ar/com/utn/proyecto/qremergencias/ws/config/WebConfig.java)
 
 ### 远程服务
 - RMI, Hessian, Buarlap, HttpInvoker

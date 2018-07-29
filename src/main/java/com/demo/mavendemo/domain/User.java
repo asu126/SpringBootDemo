@@ -3,17 +3,25 @@ package com.demo.mavendemo.domain;
 import java.util.List;
 
 public class User {
-	private Long id;
+	private Integer id;
 	private String name;
 	private Address address;
-	private Long addressId;
+	private Integer addressId;
 	private List<Car> cars;
 
-	public Long getId() {
+	public User() {
+	}
+
+	public User(String name, Integer d) {
+		this.name = name;
+		this.addressId = d;
+	}
+
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -33,11 +41,11 @@ public class User {
 		this.address = address;
 	}
 
-	public Long getAddressId() {
+	public Integer getAddressId() {
 		return addressId;
 	}
 
-	public void setAddressId(Long addressId) {
+	public void setAddressId(Integer addressId) {
 		this.addressId = addressId;
 	}
 

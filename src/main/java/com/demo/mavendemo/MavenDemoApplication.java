@@ -101,7 +101,7 @@ public class MavenDemoApplication extends SpringBootServletInitializer {
 		@Override
 		protected void configure(HttpSecurity http) throws Exception {
 			// @formatter:off
-			http.authorizeRequests().antMatchers("/", "/home", "learn/queryLeanList").permitAll() // 无条件允许访问
+			http.authorizeRequests().antMatchers("/", "/api/**", "/home", "learn/queryLeanList").permitAll() // 无条件允许访问
 				.anyRequest().authenticated() // 允许认证过的用户
 				.and()
 				.formLogin().loginPage("/login").permitAll() // 认证用户

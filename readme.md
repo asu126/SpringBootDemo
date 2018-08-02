@@ -37,6 +37,7 @@ public class NotePad { ... }
 - @RequestBody 将来自客户端的资源表述转换为对象
 - ResponseEntity
 - 异常处理：404等
+- [Configure CSRF Protection](https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/#csrf-using)
 
 ### 跨域参考
 - [github](https://github.com/fedej/qremergencias/blob/a66eb6ad75e5f40888604db97e5b628ea72fcade/qremergencias-ws/src/main/java/ar/com/utn/proyecto/qremergencias/ws/config/WebConfig.java)

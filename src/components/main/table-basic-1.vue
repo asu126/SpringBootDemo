@@ -41,6 +41,19 @@
           <b-form-select :options="pageOptions" v-model="perPage" />
         </b-form-group>
       </b-col>
+
+      <!-- add new user-->
+      <b-col md="6" class="my-1 hidden">
+        <div class="hidden">
+          <label>name:</label>
+          <input v-model="newUser.name" placeholder="edit me">
+          <label>age:</label>
+          <input v-model="newUser.age" placeholder="18">
+          <p>user age is: {{ newUser.age }}</p>
+          <b-button  @click="createUser">Add new user</b-button>
+        </div>
+      </b-col>
+      <!--end add new user-->
     </b-row>
 
     <!-- Main table element -->
@@ -56,7 +69,7 @@
              :sort-direction="sortDirection"
              @filtered="onFiltered"
     >
-      <template slot="name" slot-scope="row">{{row.value.first}} {{row.value.last}}</template>
+      <template slot="name" slot-scope="row">{{row.value}}</template>
       <template slot="isActive" slot-scope="row">{{row.value?'Yes :)':'No :('}}</template>
       <template slot="actions" slot-scope="row">
         <!-- We use @click.stop here to prevent a 'row-clicked' event from also happening -->
@@ -78,7 +91,7 @@
 
     <b-row>
       <b-col md="6" class="my-1">
-        <b-pagination :total-rows="totalRows" :per-page="perPage" v-model="currentPage" class="my-0" />
+        <b-pagination :total-rows="totalRows" :per-page="perPage" v-model="currentPage" @click.native="testFunc" class="my-0" />
       </b-col>
     </b-row>
 
@@ -91,35 +104,37 @@
 </template>
 
 <script>
+/**
 const items = [
-  { isActive: true, age: 40, name: { first: 'Dickerson', last: 'Macdonald' } },
-  { isActive: false, age: 21, name: { first: 'Larsen', last: 'Shaw' } },
+  { isActive: true, age: 40, name: 'Dickerson Macdonald' },
+  { isActive: false, age: 21, name: 'Larsen Shaw' },
   {
     isActive: false,
     age: 9,
-    name: { first: 'Mini', last: 'Navarro' },
+    name: 'Mini Navarro',
     _rowVariant: 'success'
   },
-  { isActive: false, age: 89, name: { first: 'Geneva', last: 'Wilson' } },
-  { isActive: true, age: 38, name: { first: 'Jami', last: 'Carney' } },
-  { isActive: false, age: 27, name: { first: 'Essie', last: 'Dunlap' } },
-  { isActive: true, age: 40, name: { first: 'Thor', last: 'Macdonald' } },
+  { isActive: false, age: 89, name: 'Geneva Wilson' },
+  { isActive: true, age: 38, name: 'Jami Carney' },
+  { isActive: false, age: 27, name: 'Essie Dunlap' },
+  { isActive: true, age: 40, name: 'Thor Macdonald' },
   {
     isActive: true,
     age: 87,
-    name: { first: 'Larsen', last: 'Shaw' },
+    name: 'Larsen Shaw',
     _cellVariants: { age: 'danger', isActive: 'warning' }
   },
-  { isActive: false, age: 26, name: { first: 'Mitzi', last: 'Navarro' } },
-  { isActive: false, age: 22, name: { first: 'Genevieve', last: 'Wilson' } },
-  { isActive: true, age: 38, name: { first: 'John', last: 'Carney' } },
-  { isActive: false, age: 29, name: { first: 'Dick', last: 'Dunlap' } }
+  { isActive: false, age: 26, name: 'Mitzi Navarro' },
+  { isActive: false, age: 22, name: 'Genevieve Wilson' },
+  { isActive: true, age: 38, name: 'John Carney' },
+  { isActive: false, age: 29, name: 'Dick Dunlap' }
 ]
+*/
 
 export default {
   data () {
     return {
-      items: items,
+      items: [],
       fields: [
         { key: 'name', label: 'Person Full name', sortable: true, sortDirection: 'desc' },
         { key: 'age', label: 'Person age', sortable: true, 'class': 'text-center' },
@@ -128,14 +143,33 @@ export default {
       ],
       currentPage: 1,
       perPage: 5,
-      totalRows: items.length,
+      totalRows: 0,
       pageOptions: [ 5, 10, 15 ],
       sortBy: null,
       sortDesc: false,
       sortDirection: 'asc',
       filter: null,
-      modalInfo: { title: '', content: '' }
+      modalInfo: { title: '', content: '' },
+      newUser: {}
     }
+  },
+  created: function () {
+    console.log('created')
+    // Alias the component instance as `vm`, so that we
+    // can access it inside the promise function
+    var vm = this
+
+    // Fetch our array of posts from an API
+    fetch('http://localhost:8080/api/user')
+      .then(function (response) {
+        console.log('headers的类型 X-Total-Page：' + response.headers.get('X-Total-Page'))
+        vm.totalRows = parseInt(response.headers.get('X-Total-Page'))
+        return response.json()
+      })
+      .then(function (data) {
+        console.log(data)
+        vm.items = data
+      })
   },
   computed: {
     sortOptions () {
@@ -157,9 +191,44 @@ export default {
     },
     onFiltered (filteredItems) {
       // Trigger pagination to update the number of buttons/pages due to filtering
-      this.totalRows = filteredItems.length
+      // this.totalRows = filteredItems.length
       this.currentPage = 1
+    },
+    testFunc: function (event) {
+      // `this` 在方法里指向当前 Vue 实例
+      alert('Hello ' + this.currentPage + '!')
+      // `event` 是原生 DOM 事件
+      // if (event) {
+      //   alert(event.target.tagName)
+      // }
+    },
+    createUser: function (event) {
+      // `this` 在方法里指向当前 Vue 实例
+      // alert('Hello ' + this.newUser.name + this.newUser.age + '!')
+      // $.ajax({
+      //   url: "http://localhost:8080/greeting"
+      // }).then(function(data, status, jqxhr) {
+      //   $('.greeting-id').append(data.id);
+      //   $('.greeting-content').append(data.content);
+      //   console.log(jqxhr);
+      // });
+      fetch('http://localhost:8080/api/user', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Access-Control-Allow-Origin': 'http://localhost:8080'
+        },
+        body: "name='123'"
+      }).then(function (response) {
+        // do sth
+        console.log(response)
+      })
     }
   }
 }
 </script>
+
+<style>
+  // div.hidden {display:none;}
+</style>

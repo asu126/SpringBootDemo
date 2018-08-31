@@ -131,6 +131,7 @@ const items = [
 ]
 */
 
+import $ from 'jquery'
 export default {
   data () {
     return {
@@ -212,18 +213,27 @@ export default {
       //   $('.greeting-content').append(data.content);
       //   console.log(jqxhr);
       // });
-      fetch('http://localhost:8080/api/user', {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          'Access-Control-Allow-Origin': 'http://localhost:8080'
+
+      $.post('http://localhost:8080/api/user',
+        {
+          name: 'Donald Duck',
+          age: 18
         },
-        body: "name='123'"
-      }).then(function (response) {
-        // do sth
-        console.log(response)
-      })
+        function (data, status) {
+          alert('数据：' + data + '\n状态：' + status)
+        })
+
+      // fetch('http://localhost:8080/api/user', {
+      //   method: 'POST',
+      //   mode: 'cors',
+      //   headers: {
+      //     'Content-Type': 'application/x-www-form-urlencoded'
+      //   },
+      //   body: "name='123'"
+      // }).then(function (response) {
+      //   // do sth
+      //   console.log(response)
+      // })
     }
   }
 }

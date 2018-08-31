@@ -24,3 +24,5 @@ mvn clean test
 ```
 mvn clean package
 ```
+
+mvn clean install

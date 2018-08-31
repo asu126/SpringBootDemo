@@ -21,7 +21,7 @@ WebSecurityConfigurerAdapter {
 		// @formatter:off
 		http
 		.csrf().disable()
-		    .authorizeRequests().antMatchers("/", "/**", "/api/**", "/home", "learn/queryLeanList").permitAll() // 无条件允许访问
+		    .authorizeRequests().antMatchers("/", "/api/**", "/home", "learn/queryLeanList").permitAll() // 无条件允许访问
 		    .anyRequest().authenticated() // 允许认证过的用户
 			.and().headers().frameOptions().disable()
 			.and()

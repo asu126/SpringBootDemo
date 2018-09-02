@@ -72,36 +72,4 @@ public class MavenDemoApplication extends SpringBootServletInitializer {
 		dataSource.setPoolPreparedStatements(false);// 是否缓存preparedStatement，也就是PSCache。PSCache对支持游标的数据库性能提升巨大，比如说oracle。在mysql下建议关闭。
 		return dataSource;
 	}
-
-	// @Order(Ordered.HIGHEST_PRECEDENCE)
-	// @Configuration
-	// protected static class AuthenticationSecurity {
-	//
-	// @SuppressWarnings("deprecation")
-	// @Bean
-	// public InMemoryUserDetailsManager inMemoryUserDetailsManager() throws
-	// Exception {
-	// return new InMemoryUserDetailsManager(
-	// User.withDefaultPasswordEncoder().username("admin").password("admin")
-	// .roles("ADMIN", "USER", "ACTUATOR").build(),
-	// User.withDefaultPasswordEncoder().username("user").password("user").roles("USER").build());
-	// }
-	//
-	// }
-
-	// @Configuration
-	// @Order(1)
-	// protected static class ActuatorSecurity extends WebSecurityConfigurerAdapter
-	// {
-	//
-	// @Override
-	// protected void configure(HttpSecurity http) throws Exception {
-	// // @formatter:off
-	// http.requestMatcher(EndpointRequest.toAnyEndpoint()).authorizeRequests().anyRequest().authenticated().and()
-	// .httpBasic();
-	// // @formatter:on
-	// }
-	//
-	// }
-
 }

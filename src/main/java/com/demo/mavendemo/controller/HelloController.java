@@ -21,7 +21,7 @@ public class HelloController {
 	private RedisUtils redisUtils;
 
 	@Autowired
-	private RedisTemplate redisTemplate;
+	private RedisTemplate<String, String> redisTemplate;
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	// 日志级别从低到高分为TRACE < DEBUG < INFO < WARN < ERROR <

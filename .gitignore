@@ -31,3 +31,7 @@
 # .mp4
 *.mp4
 /bin/
+
+# front
+myClient/*
+

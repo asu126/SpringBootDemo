@@ -7,11 +7,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class MvcConfig implements WebMvcConfigurer {
-	// @Override
-	// protected void configure(HttpSecurity http) throws Exception {
-	// http.csrf().disable();
-	// // 省略其他代码；
-	// }
 
 	public void addViewControllers(ViewControllerRegistry registry) {
 		registry.addViewController("/home").setViewName("home");

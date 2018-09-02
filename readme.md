@@ -17,6 +17,9 @@
     -- 主键 https://blog.csdn.net/qq_20867981/article/details/80641353
   - 分页
     -- https://blog.csdn.net/KingBoyWorld/article/details/78948304
+  - 文件上传
+    -- http://localhost:8080/file
+  　　-- http://localhost:8080/multifile
 
 ### spring bean 作用域(Scope)
   - 单例(Singleton): 默认

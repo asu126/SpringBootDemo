@@ -1,10 +1,12 @@
 package com.demo.mavendemo;
 
+import javax.servlet.MultipartConfigElement;
 import javax.sql.DataSource;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.MultipartConfigFactory;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 //import org.springframework.core.Ordered;
 //import org.springframework.core.annotation.Order;
@@ -48,6 +50,22 @@ public class MavenDemoApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MavenDemoApplication.class, args);
+	}
+
+	/**
+	 * 文件上传配置
+	 *
+	 * @return
+	 */
+	@Bean
+	public MultipartConfigElement multipartConfigElement() {
+		// 可以对上传文件的大小、缓存目录等限制
+		MultipartConfigFactory factory = new MultipartConfigFactory();
+		// 单个文件最大
+		factory.setMaxFileSize("10240KB"); // KB, MB
+		/// 设置总上传数据总大小
+		factory.setMaxRequestSize("102400KB");
+		return factory.createMultipartConfig();
 	}
 
 	@Autowired

@@ -27,8 +27,11 @@ insert  into `learn_resource`(`id`,`author`,`title`,`url`) values (1028,'杜琪'
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
+  `username` varchar(50) DEFAULT NULL,
+  `password` varchar(50) DEFAULT '123456',
   `address_id` int(11) DEFAULT NULL,
   `age` int(22) DEFAULT 18,
+  `ROLE_USER` varchar(50) DEFAULT 'USER',
   `isActive` bool DEFAULT true,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -51,10 +54,10 @@ CREATE TABLE IF NOT EXISTS `car` (
 INSERT INTO
     `user`
 VALUES
-    ('1', 'baby', '1', '22', true),
-    ('2', 'kingboy', '2', '24', true),
-    ('3', 'boy', '3', '25', true),
-    ('4', 'kingbaby', '4', '30', false);
+    ('1', 'baby', 'baby', '123456', '1', '22', 'USER', true),
+    ('2', 'kingboy', 'kingboy', '123456', '2', '24', 'USER', true),
+    ('3', 'boy', 'boy', '123456', '3', '25', 'USER', true),
+    ('4', 'kingbaby', 'kingbaby', '123456', '4', '30', 'USER', false);
 
 INSERT INTO
     `address`

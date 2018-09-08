@@ -3,12 +3,17 @@
 import Vue from 'vue'
 import BootstrapVue from 'bootstrap-vue'
 import VueRouter from 'vue-router'
+import Vuex from 'vuex'
 
 import App from './App'
 import UserEmailsSubscriptions from './components/main/UserEmailsSubscriptions'
 import Homepage from './components/main/homepage'
 import Table1 from './components/main/table-basic-1'
 
+import Counter from './components/main/Counter.vue'
+import store from './store'
+
+Vue.use(Vuex)
 Vue.use(VueRouter)
 Vue.use(BootstrapVue)
 
@@ -19,7 +24,11 @@ const UserSettingsNav = {
       <b-list-group>
         <b-list-group-item href="/settings/profile">profile</b-list-group-item>
         <b-list-group-item href="/settings/emails">emails</b-list-group-item>
-        <b-list-group-item href="#">Action links are easy</b-list-group-item>
+        <b-list-group-item href="/settings/counter">count test by vuex</b-list-group-item>
+        <b-list-group-item href="#">0</b-list-group-item>
+        <b-list-group-item href="#">1</b-list-group-item>
+        <b-list-group-item href="#">2</b-list-group-item>
+        <b-list-group-item href="#">3</b-list-group-item>
         <b-list-group-item href="#foobar" disabled>Disabled link</b-list-group-item>
       </b-list-group>
     </div>
@@ -70,6 +79,9 @@ const router = new VueRouter({
           default: UserProfile,
           helper: UserProfilePreview
         }
+      }, {
+        path: 'counter',
+        component: Counter
       }]
     }
   ]
@@ -78,6 +90,7 @@ const router = new VueRouter({
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  store, // 把 store 对象提供给 “store” 选项，这可以把 store 的实例注入所有的子组件
   router, // （缩写）相当于 router: router
   components: { App },
   template: '<App/>'

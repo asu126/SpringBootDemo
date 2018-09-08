@@ -17,8 +17,8 @@
         <b-navbar-nav class="ml-auto">
 
           <b-nav-form>
-            <b-form-input size="sm" class="mr-sm-2" type="text" placeholder="Search"/>
-            <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
+            <b-form-input id="globalSearch" size="sm" class="mr-sm-2" type="text" placeholder="Search"/>
+            <b-button size="sm" class="my-2 my-sm-0" v-on:click="btnClick()">Search</b-button>
           </b-nav-form>
 
           <b-nav-item-dropdown text="Lang" right>
@@ -42,3 +42,13 @@
     </b-navbar>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    btnClick: function () {
+      alert(document.getElementById('globalSearch').value)
+    }
+  }
+}
+</script>

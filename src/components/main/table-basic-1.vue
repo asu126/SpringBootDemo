@@ -216,8 +216,8 @@ export default {
 
       $.post('http://localhost:8080/api/user',
         {
-          name: 'Donald Duck',
-          age: 18
+          name: this.newUser.name, // 'Donald Duck',
+          age: this.newUser.age
         },
         function (data, status) {
           alert('数据：' + data + '\n状态：' + status)

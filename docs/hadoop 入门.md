@@ -44,3 +44,10 @@ hadoop jar wc.jar org.myorg.WordCount /user/input1 /user/output_01
 - [易百教程](https://www.yiibai.com/hadoop/)
 - [Apache Hadoop 入门教程](http://www.importnew.com/21536.html)
 - [https://waylau.com/about-hadoop/](https://waylau.com/about-hadoop/)
+
+### hadoop 学习
+##### ch02-mr-intro
+```
+cd ch02-mr-intro
+hadoop jar target/ch02-mr-intro-4.0.jar MaxTemperature /user/ch02/input /user/ch02/output03
+```

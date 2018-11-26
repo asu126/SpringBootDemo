@@ -14,6 +14,20 @@ export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
 export HADOOP_INSTALL=$HADOOP_HOME
 ```
 
+###  配置文件
+- hadoop-env.sh: 环境变量
+- core-site.xml: hdfs,mr,yarn 等常用的IO配置
+- hdfs-site.xml： Hadoop 守护进程配置项，包括datanode,namenode
+- yarn-site.xml： yarn 收回进程配置项，宝包括资源管理器，web 应用代理服务器以及节点管理器
+- marped-site.xml: MapReduce 守护进程的配置项，包括历史作业服务器
+
+### 操作
+```
+- get namenode
+hdfs getconf -namenodes
+
+```
+
 ### 编译源码
 ```
 $ mkdir units
@@ -48,6 +62,55 @@ hadoop jar wc.jar org.myorg.WordCount /user/input1 /user/output_01
 ### hadoop 学习
 ##### ch02-mr-intro
 ```
+mvn package -DskipTests
 cd ch02-mr-intro
 hadoop jar target/ch02-mr-intro-4.0.jar MaxTemperature /user/ch02/input /user/ch02/output03
+
+../ch02-mr-intro/target/ch02-mr-intro-4.0.jar
 ```
+
+### Hadoop 模型
+```
+其他: Pig, Hive ...
+Application: MapReduce, Spark, Tez ...
+Compute: YARN
+Storage: HDFS And HBase
+
+```
+
+### ch05 hadoop 的io 操作
+- 数据完整性校验
+
+```
+hadoop fs -checksum /user/ch02/input/input.txt
+/user/ch02/input/input.txt	MD5-of-0MD5-of-512CRC32C	00000200000000000000000049a9fad62798d4bf4f3cf23b356501d2
+```
+- run
+```
+echo "Text" | hadoop jar target/ch05-io-4.0.jar StreamCompressor org.apache.hadoop.io.compress.GzipCodec | gunzip
+hadoop fs -put  /workspace/asu/eclipse-workspace/hadoop-book/ch05-io/src/test/resources/file.gz /user
+hadoop jar target/ch05-io-4.0.jar FileDecompressor hdfs://localhost:9000/user/file.gz
+cp lib/ch02-mr-intro-4.0.jar /workspace/asu/hadoop-2.7.6/share/hadoop/common/lib/
+hadoop jar target/ch05-io-4.0.jar  MaxTemperatureWithCompression /user/ch02/input /user/ch02/output05
+```
+
+### ch16 Pig
+##### 执行类型
+- 本地模式（pig -x local）
+- MapReduce 模式
+
+##### 运行pig程序
+数据需要多个MapReduce 过程才能完成
+- 脚本：pig script.pig
+- Grunt:
+- 嵌入式方式
+
+##### Hive
+使用SQL 对放在HDFS中的大规模数据进行查询。
+
+```
+bin/schematool -dbType mysql -initSchema  --verbose
+```
+
+##### Spark
+将作业与作业间的大规模数据放在内存中。

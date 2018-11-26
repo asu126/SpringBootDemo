@@ -18,7 +18,7 @@
 
 <configuration>
   <property>
-    <name>fs.default.name </name>
+    <name>fs.default.name</name>
     <value>hdfs://localhost:9000</value> 
   </property>
 </configuration>

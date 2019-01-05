@@ -22,6 +22,28 @@ ZooKeeper可以为所有的读操作设置watch，这些读操作包括：exists
 
 ### 运行实例
 ##### zookeeeper 单实例安装
+
+```
+cd zookeeper-3.4.12/
+cp conf/zoo_sample.cfg conf/zoo.cfg
+bin/zkServer.sh start
+bin/zkCli.sh
+```
+
+##### zookeeper 命令
+
+```
+ echo ruok | nc localhost 2181
+ echo conf | nc localhost 2181
+ echo emvi | nc localhost 2181
+ echo envi | nc localhost 2181
+ echo seri | nc localhost 2181
+ echo srvr | nc localhost 2181
+ echo srvr | nc localhost 2181
+ echo stat | nc localhost 2181
+ echo mntr | nc localhost 2181
+ ```
+ 
 ##### 运行 
 - 1、下载 https://github.com/dubbo/dubbo-samples.git
 - 2、Build the project

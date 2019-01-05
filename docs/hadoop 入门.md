@@ -1,10 +1,13 @@
 # hadoop 入门总结
 
 ### 配置
+
+- sudo apt install openssh-server
+
 ```
 vim ~/.bashrc
-export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
-export HADOOP_HOME=/home/asu/hadoop-2.7.6
+export JAVA_HOME=/usr/local/jdk/jdk1.8.0_201
+export HADOOP_HOME=/home/su/hadoop-2.7.6
 export HADOOP_MAPRED_HOME=$HADOOP_HOME 
 export HADOOP_COMMON_HOME=$HADOOP_HOME 
 export HADOOP_HDFS_HOME=$HADOOP_HOME 
@@ -114,3 +117,38 @@ bin/schematool -dbType mysql -initSchema  --verbose
 
 ##### Spark
 将作业与作业间的大规模数据放在内存中。
+
+export M2_HOME=/home/su/workspace/apache-maven-3.5.3
+export CLASSPATH=$CLASSPATH:$M2_HOME/lib
+export PATH=$PATH:$M2_HOME/bin
+
+
+#### 解压apache-hive 和 db-derby后初始化元数据
+
+$ cd $HIVE_HOME
+$ schematool -initSchema -dbType derby
+
+```
+# HIVE
+export HIVE_HOME=/home/su/apache-hive-2.3.4-bin
+export HIVE_CONF_DIR=/home/su/apache-hive-2.3.4-bin/conf
+export PATH=$HIVE_HOME/bin:$PATH
+export CLASSPATH=$CLASSPATH:/home/su/apache-hive-2.3.4-bin/lib/*:.
+
+# DERBY
+DERBY_HOME=/home/su/db-derby-10.14.2.0-bin
+export PATH=$PATH:$DERBY_HOME/bin
+export CLASSPATH=$CLASSPATH:$DERBY_HOME/lib/derby.jar:$DERBY_HOME/lib/derbytool
+
+# ZOOKEEPER
+export ZOOKEEPER_HOME=/home/su/zookeeper-3.4.12
+export PATH=$PATH:$ZOOKEEPER_HOME/bin
+
+# set java env
+export JAVA_HOME=/usr/local/jdk/jdk1.8.0_201
+export JRE_HOME=${JAVA_HOME}/jre
+export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
+export PATH=${JAVA_HOME}/bin:$PATH
+```
+
+

@@ -34,9 +34,9 @@ load data local inpath '/tmp/sample.txt' overwrite into table records;
 
 ```
 hive> select year, max(temperature)
-    > from records
-    > where temperature !=9999 AND quality in(0,1,4,5,9)
-    > group by year;
+    from records
+    where temperature !=9999 AND quality in(0,1,4,5,9)
+    group by year;
 ```
 
 - https://blog.csdn.net/agent_x/article/details/78660341

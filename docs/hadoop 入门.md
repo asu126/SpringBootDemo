@@ -25,13 +25,18 @@ export HADOOP_INSTALL=$HADOOP_HOME
 - marped-site.xml: MapReduce 守护进程的配置项，包括历史作业服务器
 
 ### 操作
-```
-- get namenode
-hdfs getconf -namenodes
 
+```
+# get namenode
+hdfs getconf -namenodes
+# 查看hdfs 文件
+hadoop fs -ls hdfs://localhost:9000
+# 查看本地文件
+hadoop fs -ls file:///home
 ```
 
 ### 编译源码
+
 ```
 $ mkdir units
 $ javac -classpath `hadoop classpath` -d units WordCount.java

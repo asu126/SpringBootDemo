@@ -2,6 +2,7 @@
 
 $ cd $HIVE_HOME
 $ schematool -initSchema -dbType derby
+$ schematool -initSchema -dbType mysql
 
 ```
 # HIVE
@@ -37,3 +38,6 @@ hive> select year, max(temperature)
     > where temperature !=9999 AND quality in(0,1,4,5,9)
     > group by year;
 ```
+
+- https://blog.csdn.net/agent_x/article/details/78660341
+- https://www.cnblogs.com/biehongli/p/7693598.html

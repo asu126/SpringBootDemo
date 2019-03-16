@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!--这个属性使 Hibernate 应用为被选择的数据库生成适当的 SQL-->
+        <property name="hibernate.dialect">
+            org.hibernate.dialect.MySQLDialect
+        </property>
+        <!--JDBC 驱动程序类-->
+        <property name="hibernate.connection.driver_class">
+            com.mysql.cj.jdbc.Driver
+        </property>
+
+        <!-- Assume test is the database name -->
+        <property name="hibernate.connection.url">
+            jdbc:mysql://localhost:3306/test1?useSSL=false
+        </property>
+        <property name="hibernate.connection.username">
+            root
+        </property>
+        <property name="hibernate.connection.password">
+            12345678
+        </property>
+
+        <!--hibernate.connection.pool_size: 限制在 Hibernate 应用数据库连接池中连接的数量-->
+        <!-- List of XML mapping files -->
+        <mapping resource="Employee.hbm.xml"/>
+
+    </session-factory>
+</hibernate-configuration>

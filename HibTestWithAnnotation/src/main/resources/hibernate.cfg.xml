@@ -26,7 +26,12 @@
 
         <!--hibernate.connection.pool_size: 限制在 Hibernate 应用数据库连接池中连接的数量-->
         <!-- List of XML mapping files -->
-        <mapping resource="Employee.hbm.xml"/>
+        <!--<mapping resource="Employee.hbm.xml"/>-->
+        <!-- Enable Hibernate's automatic session context management -->
+        <property name="current_session_context_class">
+            thread
+        </property>
+        <!--<mapping class="com.asu.hib1.Employee"/>-->
 
     </session-factory>
 </hibernate-configuration>

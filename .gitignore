@@ -1,6 +1,7 @@
 HibTestWithXML/target/*
 HibTestWithAnnotation/target/*
+MyBatis/target/*
 HibTestWithXML/.idea/*
 HibTestWithAnnotation/.idea/*
-.idea/*
+MyBatis/.idea/*
 .attach_pid29836

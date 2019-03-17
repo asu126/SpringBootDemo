@@ -22,11 +22,11 @@ public class CeshiCustomer {
          *  2、获得 SqlSession
          *  3、调用在 mapper 文件中配置的 SQL 语句
          */
-        String resource = "mybatis-config.xml";           // 定位核心配置文件
+        String resource = "mybatis-config.xml"; // 定位核心配置文件
         InputStream inputStream = Resources.getResourceAsStream(resource);
-        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);    // 创建 SqlSessionFactory
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream); // 创建 SqlSessionFactory
 
-        SqlSession sqlSession = sqlSessionFactory.openSession();    // 获取到 SqlSession
+        SqlSession sqlSession = sqlSessionFactory.openSession(); // 获取到 SqlSession
 
         Map map = new HashMap();
         map.put("customerName", "charies");

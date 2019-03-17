@@ -1,0 +1,16 @@
+```
+CREATE TABLE tb_card (
+id INT PRIMARY KEY AUTO_INCREMENT,
+CODE VARCHAR (18)
+);
+INSERT INTO tb_card(CODE) VALUES('432801198009191038');
+CREATE TABLE tb_person (
+id INT PRIMARY KEY AUTO_INCREMENT,
+NAME VARCHAR(18),
+sex VARCHAR(18),
+age INT,
+card_id INT,
+FOREIGN KEY ('card_id') REERENCES 'tb_card'('id')
+);
+INSERT INTO tb_person(NAME,sex,age,card_id) VALUES('jack','男',23,1);
+```

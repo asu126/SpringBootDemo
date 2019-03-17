@@ -27,7 +27,12 @@
     <!-- 加载映射文件 mapper -->
     <mappers>
         <!-- 路径用 斜线（/） 分割，而不是用 点(.) -->
-        <mapper resource="mapper/UserMapper.xml"/>
-        <mapper resource="mapper/CustomerMapper.xml"/>
+        <!--demo1-->
+        <!--<mapper resource="mapper/UserMapper.xml"/>-->
+        <!--<mapper resource="mapper/CustomerMapper.xml"/>-->
+
+        <!--one to one-->
+        <mapper resource="one2one/CardMapper.xml"/>
+        <mapper resource="one2one/PersonMapper.xml"/>
     </mappers>
 </configuration>

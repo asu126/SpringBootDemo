@@ -45,5 +45,10 @@
         <!--one 2 more-->
         <mapper resource="one2more/ClazzMapper.xml"/>
         <mapper resource="one2more/StudentMapper.xml"/>
+
+        <!--more to more-->
+        <mapper resource="more2more/ArticleMapper.xml"/>
+        <mapper resource="more2more/OrderMapper.xml"/>
+        <mapper resource="more2more/UserMapper.xml"/>
     </mappers>
 </configuration>

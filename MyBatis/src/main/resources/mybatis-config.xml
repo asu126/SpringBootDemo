@@ -4,6 +4,12 @@
 <configuration>
     <!-- 引入外部配置资源 -->
     <properties resource="jdbc.properties"></properties>
+    <settings>
+        <setting name="logImpl" value="LOG4J"/>
+        <!-- 要使延迟加载生效必须配置下面两个属性 -->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="aggressiveLazyLoading" value="false"/>
+    </settings>
 
     <!-- 类型别别名 -->
     <typeAliases>
@@ -24,6 +30,7 @@
             </dataSource>
         </environment>
     </environments>
+
     <!-- 加载映射文件 mapper -->
     <mappers>
         <!-- 路径用 斜线（/） 分割，而不是用 点(.) -->
@@ -34,5 +41,9 @@
         <!--one to one-->
         <mapper resource="one2one/CardMapper.xml"/>
         <mapper resource="one2one/PersonMapper.xml"/>
+
+        <!--one 2 more-->
+        <mapper resource="one2more/ClazzMapper.xml"/>
+        <mapper resource="one2more/StudentMapper.xml"/>
     </mappers>
 </configuration>

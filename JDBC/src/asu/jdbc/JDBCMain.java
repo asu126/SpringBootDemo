@@ -27,6 +27,8 @@ public class JDBCMain {
         for(Integer i: ins){
             dao.delWebsite(i);
         }
+
+        dao.transferAccounts();
     }
 
 }

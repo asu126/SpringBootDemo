@@ -30,7 +30,7 @@ public class WebsiteDao {
         ptmt.setString(4, website.getCountry());
 
         // 执行
-         ptmt.execute(); // ptmt.executeUpdate();
+        ptmt.execute(); // ptmt.executeUpdate();
         // https://blog.csdn.net/shootyou/article/details/6023428
         // You need to specify Statement.RETURN_GENERATED_KEYS to Statement.executeUpdate(), Statement.executeLargeUpdate() or Connection.prepareStatement()
         // ps = getConnection().prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
@@ -106,11 +106,11 @@ public class WebsiteDao {
         // sql, 每行加空格
         String sql = "select * from  websites where id=?";
         //预编译SQL，减少sql执行
-        PreparedStatement ptmt = conn.prepareStatement(sql);
+        PreparedStatement stmt = conn.prepareStatement(sql);
         //传参
-        ptmt.setInt(1, id);
+        stmt.setInt(1, id);
         //执行
-        ResultSet rs = ptmt.executeQuery();
+        ResultSet rs = stmt.executeQuery();
         while (rs.next()) {
             website = new Website();
             website.setId(rs.getInt("id"));
@@ -120,5 +120,44 @@ public class WebsiteDao {
             website.setCountry(rs.getString("country"));
         }
         return website;
+    }
+
+    public void transferAccounts() {
+        // 对事务的操作
+        Connection con = null;
+        try {
+            /*
+            七、JDBC设置隔离级别
+            con.setTransactionIsolation(int level) :参数可选值如下：
+            Connection.TRANSACTION_READ_UNCOMMITTED；
+            Connection.TRANSACTION_READ_COMMITTED；
+            Connection.TRANSACTION_REPEATABLE_READ；
+            Connection.TRANSACTION_READ_SERIALIZABL
+            **/
+            con = DbUtil.getConnection();
+            boolean autoCommit = con.getAutoCommit();
+            // 关闭自动提交, 开启事务
+            con.setAutoCommit(false);
+            String sql = "update websites set name = 'Update66666' where id = 10";
+            Statement stmt = con.createStatement();
+            System.out.println("Update row count: " + stmt.executeUpdate(sql));
+            // 提交事务
+            sql = "update websites1 set name = 'Update222' where id = 100"; // table websites1 don't exits
+            System.out.println("Insert row count: " + stmt.executeUpdate(sql));
+            con.commit();
+
+            con.setAutoCommit(autoCommit);
+        } catch (Exception e) {
+            try {
+                // 事务回滚
+                con.rollback();
+            } catch (SQLException e1) {
+                e.printStackTrace();
+            }
+            throw new RuntimeException(e);
+        } finally {
+
+        }
+
     }
 }
